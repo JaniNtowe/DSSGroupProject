@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read the CSV file into a DataFrame
+#Here we go through the file 'unpopular_songs.csv' and we interpret it. 'latin1' represents the alphabets of western european languages which means we are reading 'unpopular_songs.csv' in english.
 df = pd.read_csv("unpopular_songs.csv", encoding="latin1")
 plt.close("all")
 
