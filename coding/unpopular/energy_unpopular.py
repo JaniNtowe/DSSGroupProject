@@ -24,6 +24,8 @@ plt.xlabel('Title')
 #this names the y-axis
 plt.ylabel('energy')
 #this names the top of the graph
-plt.title('Energy graph')
+plt.title('Unpopular Energy Graph')
+#saves bar graph
+plt.savefig('Unpopular Energy Bar Graph')
 #this makes the graph appear
 plt.show()
