@@ -14,4 +14,5 @@ sns.boxplot(data=songData, x="danceability", y="popularity", color = "#C1D5F0", 
 plt.xlabel('Danceability')
 plt.title('Unpopular vs Popular Danceability Box Plot')
 plt.savefig('Danceability Box Plot')
+plt.xticks(rotation=90)
 plt.show()
