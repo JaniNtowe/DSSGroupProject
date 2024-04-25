@@ -11,7 +11,8 @@ organized_data = df.sort_values(by='val')
 # Plot the data
 plt.figure(figsize=(10, 6))  # Adjust the figure size as needed
 plt.bar(organized_data['title'], organized_data['val'])
-plt.xlabel('Title')  # Replace 'Column Names' with a suitable label
-plt.ylabel('val')  # Replace 'Value' with a suitable label
-plt.title('VAL graph')
+plt.xlabel('Songs')  # Replace 'Column Names' with a suitable label
+plt.ylabel('valence')  # Replace 'Value' with a suitable label
+plt.title('Valence graph')
+plt.xticks([])
 plt.show()

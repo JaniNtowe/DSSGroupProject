@@ -13,6 +13,7 @@ organized_data = df.sort_values(by='dnce')
 plt.figure(figsize=(10, 6))  # Adjust the figure size as needed
 plt.bar(organized_data['title'], organized_data['dnce'])
 plt.xlabel('Title')  # Replace 'Column Names' with a suitable label
-plt.ylabel('dnce')  # Replace 'Value' with a suitable label
-plt.title('DNCE graph')
+plt.ylabel('danceability')  # Replace 'Value' with a suitable label
+plt.title('Danceability graph')
+plt.xticks([])
 plt.show()
