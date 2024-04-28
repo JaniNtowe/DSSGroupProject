@@ -1,5 +1,5 @@
-CLIENT_ID = "9cb7a4f5deda417a8be0678df9834e9e"
-CLIENT_SECRET = "1d8692e324e141cfb26b90a8f8ed665b"
+CLIENT_ID = "d366004c041d48358884e2251d4265e9"
+CLIENT_SECRET = "0b27658e6d8b4ff0bf09d6bcf0c9806b"
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import base64
@@ -49,53 +49,54 @@ def getData(token, spotifyPlaylistID):
     items = playlist_data.get("items", [])
     # title = [item["track"]["name"] for item in items]
     # artist = [artist["name"] for item in items for artist in item["track"]["artists"]]
-    # trackURI = [item["track"]["uri"] for item in items]
-    # myList = []
+    trackURI = [item["track"]["uri"] for item in items]
+    myList = []
     # titles = []
     # artists = []
-    # for x in range(len(trackURI)):
-    #     myList.append(sp.audio_features(trackURI[x]))
+    for x in range(len(trackURI)):
+        myList.append(sp.audio_features(trackURI[x]))
     #     titles.append(title[x])
     #     artists.append(artist[x])
-        #     print(title[x] + " by " + artist[x])
-        #     print(sp.audio_features(trackURI[x]))
+    #     print(title[x] + " by " + artist[x])
+    #     print(sp.audio_features(trackURI[x]))
     # return myList, titles, artists
-    # return myList
+    return myList
     # else:
     #     print("Error")
     #     return[]
-    json_result = json.loads(result.content)
+    # json_result = json.loads(result.content)
     # for i in range(len(json_result)):
     #     print(json_result[i])
-    print(json_result)
+    # print(json_result)
     # print(items)
 
 
 token = getToken()
 print(getData(token, "1YEEcmJEoPN3rMYmidOH7w"))
 
+audioFeatures = getData(token, "1YEEcmJEoPN3rMYmidOH7w")
 # audioFeatures, titles, names = getData(token, "5gVlReMeM1oXksvVNUAVtF")
 # audioFeatures = data[0]
 # titles = data[1]
 # names = data[2]
 
 # Specify the field names (column headers)
-# firstTrack = audioFeatures[0]
-# fieldnames = list(firstTrack[0].keys())  # Assuming all dictionaries have the same keys
+firstTrack = audioFeatures[0]
+fieldnames = list(firstTrack[0].keys())  # Assuming all dictionaries have the same keys
 # fieldnames.append("name")
 # fieldnames.append("title")
 
 # fieldnames += ["titles", "names"]     # Add "titles" and "names" to the fieldnames list
 
 # Specify the CSV file path
-# csv_file_path = "output.csv"
-#
-# # Write the data to the CSV file
-# with open(csv_file_path, mode="w", newline="") as file:
-#     writer = csv.DictWriter(file, fieldnames=fieldnames)
-#     writer.writeheader()  # Write the header row with field names
-#     for x in range(len(audioFeatures)):
-#         writer.writerows(audioFeatures[x])
+csv_file_path = "output.csv"
+
+# Write the data to the CSV file
+with open(csv_file_path, mode="w", newline="") as file:
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    writer.writeheader()  # Write the header row with field names
+    for x in range(len(audioFeatures)):
+        writer.writerows(audioFeatures[x])
     # for row, title in zip(audioFeatures, titles):
     #     row["title"] = title
     #     writer.writerow(row)
@@ -126,9 +127,9 @@ print(getData(token, "1YEEcmJEoPN3rMYmidOH7w"))
 #     # Write header row
 #     writer.writeheader()
 
-    # Write data rows
-    # for item in json_data:
-    #     writer.writerow(item)
+# Write data rows
+# for item in json_data:
+#     writer.writerow(item)
 
 
 # def json_to_csv():
